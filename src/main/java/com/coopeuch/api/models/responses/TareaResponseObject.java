@@ -2,11 +2,13 @@ package com.coopeuch.api.models.responses;
 
 import java.io.Serializable;
 
-public class ResponseObject implements Serializable {
+import com.coopeuch.api.entities.TareaEntity;
+
+public class TareaResponseObject implements Serializable {
 
 	private static final long serialVersionUID = -1438679831996428908L;
 	private String message;
-	private Object result;
+	private TareaEntity result;
 
 	public String getMessage() {
 		return message;
@@ -16,11 +18,11 @@ public class ResponseObject implements Serializable {
 		this.message = message;
 	}
 
-	public Object getResult() {
+	public TareaEntity getResult() {
 		return result;
 	}
 
-	public void setResult(Object result) {
+	public void setResult(TareaEntity result) {
 		this.result = result;
 	}
 

@@ -1,6 +1,6 @@
 package com.coopeuch.api.models.requests;
 
-public class CrearTareaRequestModel {
+public class TareaRequestModel {
 
     private String descripcion;
 

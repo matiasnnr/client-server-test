@@ -1,7 +1,9 @@
 package com.coopeuch.api.controllers;
 
-import com.coopeuch.api.models.requests.CrearTareaRequestModel;
-import com.coopeuch.api.models.responses.ResponseObject;
+import com.coopeuch.api.models.requests.TareaRequestModel;
+import com.coopeuch.api.models.responses.OperationStatusModel;
+import com.coopeuch.api.models.responses.TareaResponseObject;
+import com.coopeuch.api.models.responses.TareasResponseObject;
 import com.coopeuch.api.services.TareaServiceInterface;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +17,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import io.swagger.annotations.ApiOperation;
+
 @RestController
 @RequestMapping("/tareas")
 public class TareasController {
@@ -23,23 +27,27 @@ public class TareasController {
     TareaServiceInterface tareaServiceInterface;
 
     @GetMapping
-    public ResponseEntity<ResponseObject> listarTareas() {
+    @ApiOperation("Retorna una lista con las tareas")
+    public ResponseEntity<TareasResponseObject> listarTareas() {
         return tareaServiceInterface.listarTareas();
     }
 
     @PostMapping
-    public ResponseEntity<ResponseObject> crearTarea(@RequestBody CrearTareaRequestModel crearTareaRequestModel) {
-        return tareaServiceInterface.crearTarea(crearTareaRequestModel);
+    @ApiOperation("Permite crear una tarea")
+    public ResponseEntity<TareaResponseObject> crearTarea(@RequestBody TareaRequestModel tareaRequestModel) {
+        return tareaServiceInterface.crearTarea(tareaRequestModel);
     }
 
     @PutMapping(path = "/{id}")
-    public ResponseEntity<ResponseObject> actualizarTarea(@RequestBody CrearTareaRequestModel crearTareaRequestModel,
+    @ApiOperation("Permite actualizar una tarea en base a su id")
+    public ResponseEntity<TareaResponseObject> actualizarTarea(@RequestBody TareaRequestModel tareaRequestModel,
             @PathVariable long id) {
-        return tareaServiceInterface.actualizarTarea(crearTareaRequestModel, id);
+        return tareaServiceInterface.actualizarTarea(tareaRequestModel, id);
     }
 
     @DeleteMapping(path = "/{id}")
-    public ResponseEntity<ResponseObject> eliminarTarea(@PathVariable long id) {
+    @ApiOperation("Permite eliminar una tarea en base a su id")
+    public OperationStatusModel eliminarTarea(@PathVariable long id) {
         return tareaServiceInterface.eliminarTarea(id);
     }
 
