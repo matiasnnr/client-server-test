@@ -1,5 +1,10 @@
 # **Pasos para correr la aplicación:**
 
+### Ramas
+1. **main:** tiene la descripción sobre cómo correr la aplicación completa y el archivo con el script para hacer un **restore** a la base de datos desde **pgAdmin** de PostgreSQL. El archivo se llama **backup**.
+2. **client:** tiene la aplicación del **cliente** hecha con **React** y **Redux**.
+3. **server:** tiene la aplicación del **servidor** hecha con **Spring Boot**.
+
 ### Servidor (PostgreSQL - Spring Boot)
 
 Primero que todo es necesario tener la API andando para que el cliente pueda hacer las solicitudes necesarias e interactuar con el servidor. Para esto es necesario configurar nuestra base de datos. Esto se puede hacer de dos maneras:
