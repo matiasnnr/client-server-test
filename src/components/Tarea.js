@@ -10,12 +10,10 @@ const Tarea = ({ tarea, dispatch }) => {
 
     const editarTarea = async () => {
 
-        if (!descripcion) {
-            return window.alert('El input de editar tarea no puede estar vacío.');
-        }
+        if (!descripcion) return window.alert('El input de editar tarea no puede estar vacío.')
 
         if (!isDisabled && tarea.descripcion === descripcion && tarea.vigente === vigente) {
-            return window.alert('Para editar una tarea su descripción o vigencia deben tener modificaciones.');
+            return window.alert('Para editar una tarea su descripción o vigencia deben tener modificaciones.')
         }
 
         setIsDisabled(!isDisabled)

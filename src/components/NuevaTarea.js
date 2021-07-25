@@ -10,9 +10,7 @@ const NuevaTarea = () => {
   const agregarTarea = async (event) => {
     event.preventDefault()
 
-    if (!descripcion) {
-      return window.alert('El input de agregar tarea no puede estar vacío.');
-    }
+    if (!descripcion) return window.alert('El input de agregar tarea no puede estar vacío.')
 
     const { result } = await tareaService.crearTarea(descripcion)
     dispatch(crearTarea(result))
