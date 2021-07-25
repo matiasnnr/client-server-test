@@ -51,4 +51,10 @@ public class TareasController {
         return tareaServiceInterface.eliminarTarea(id);
     }
 
+    @DeleteMapping(path = "/limpiar")
+    @ApiOperation("Permite eliminar todas las tareas para testear el frontend")
+    public OperationStatusModel eliminarTodo() {
+        return tareaServiceInterface.eliminarTodo();
+    }
+
 }

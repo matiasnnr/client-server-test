@@ -133,4 +133,21 @@ public class TareaService implements TareaServiceInterface {
 
     }
 
+    @Override
+    public OperationStatusModel eliminarTodo() {
+
+        OperationStatusModel operationStatusModel = new OperationStatusModel();
+        operationStatusModel.setName("DELETE-ALL");
+
+        try {
+            tareaRepository.deleteAll();
+            operationStatusModel.setResult("EXITOSO");
+            return operationStatusModel;
+        } catch (Exception e) {
+            operationStatusModel.setResult("FALLIDO: " + e);
+            return operationStatusModel;
+        }
+
+    }
+
 }

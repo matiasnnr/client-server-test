@@ -15,4 +15,6 @@ public interface TareaServiceInterface {
     public ResponseEntity<TareaResponseObject> actualizarTarea(TareaRequestModel tareaRequestModel, long id);
 
     public OperationStatusModel eliminarTarea(long id);
+
+    public OperationStatusModel eliminarTodo();
 }
