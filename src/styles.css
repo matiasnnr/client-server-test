@@ -29,6 +29,9 @@ button {
 
 input {
     height: 1.8rem;
+    padding: 0 0.5rem;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 
 input[type=text] {
