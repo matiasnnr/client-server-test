@@ -7,13 +7,15 @@ const tareaReducer = (state = [], action) => {
       return action.data
 
     case 'ACTUALIZAR_TAREA':
-      console.log(`...state`, ...state)
       const estadoActualizado = state.map(tarea => tarea.id !== action.data.id ? tarea : action.data)
       return [...estadoActualizado]
 
     case 'ELIMINAR_TAREA':
       const nuevoEstado = state.filter(tarea => tarea.id !== action.data.id)
       return [...nuevoEstado]
+
+    case 'ELIMINAR_TODO':
+      return []
 
     default:
       return state
@@ -38,6 +40,12 @@ export const eliminarTarea = (data) => {
   return {
     type: 'ELIMINAR_TAREA',
     data
+  }
+}
+
+export const eliminarTodo = () => {
+  return {
+    type: 'ELIMINAR_TODO'
   }
 }
 

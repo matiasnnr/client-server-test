@@ -1,21 +1,20 @@
 import React from 'react'
-import { useDispatch, useSelector } from 'react-redux'
 import Tarea from './Tarea'
 
-const Tareas = () => {
-  const dispatch = useDispatch()
-  const tareas = useSelector(({ tareas }) => tareas);
-
+const Tareas = ({ tareas, dispatch }) => {
   return (
-    <ul>
-      {tareas.map(tarea =>
-        <Tarea
-          key={tarea.id}
-          tarea={tarea}
-          dispatch={dispatch}
-        />
-      )}
-    </ul>
+    <div className="task__list">
+      <h4 data-testid="count">Lista de Tareas ({tareas.length})</h4>
+      <ul>
+        {tareas.map(tarea =>
+          <Tarea
+            key={tarea.id}
+            tarea={tarea}
+            dispatch={dispatch}
+          />
+        )}
+      </ul>
+    </div>
   )
 }
 

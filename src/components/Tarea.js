@@ -7,7 +7,16 @@ const Tarea = ({ tarea, dispatch }) => {
     const [descripcion, setDescripcion] = useState(tarea.descripcion)
     const [vigente, setVigente] = useState(tarea.vigente)
 
+
     const editarTarea = async () => {
+
+        if (!descripcion) {
+            return window.alert('El input de editar tarea no puede estar vacío.');
+        }
+
+        if (!isDisabled && tarea.descripcion === descripcion && tarea.vigente === vigente) {
+            return window.alert('Para editar una tarea su descripción o vigencia deben tener modificaciones.');
+        }
 
         setIsDisabled(!isDisabled)
 
@@ -15,7 +24,9 @@ const Tarea = ({ tarea, dispatch }) => {
         if (!isDisabled) {
             tarea.descripcion = descripcion
             tarea.vigente = vigente
+            console.log(`tarea`, tarea)
             const { result } = await tareaService.actualizarTarea(tarea)
+            console.log(`result`, result)
             dispatch(updateTask(result))
         }
 
@@ -29,6 +40,7 @@ const Tarea = ({ tarea, dispatch }) => {
     return (
         <li>
             <input
+                data-testid="editar"
                 style={{ outline: `${isDisabled && 'none'}`, border: `${isDisabled ? 'none' : '1px dashed black'}` }}
                 type="text"
                 value={descripcion}
@@ -45,7 +57,7 @@ const Tarea = ({ tarea, dispatch }) => {
                 }}
             />
             <label>vigente</label><br></br>
-            <button onClick={editarTarea}>{isDisabled ? 'habilitar edición' : 'editar tarea'}</button>
+            <button data-testid="boton-editar" onClick={editarTarea}>{isDisabled ? 'habilitar edición' : 'editar tarea'}</button>
             <button onClick={eliminarTarea}>eliminar tarea</button>
         </li>
     )
