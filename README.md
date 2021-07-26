@@ -26,4 +26,7 @@ Para poder correr la aplicación del cliente son necesarios dos pasos en orden:
 - En **React** debes abrir una consola o terminal dentro de la carpeta del proyecto, **tener la aplicacion de Spring Boot corriendo** y ejecutar el comando **npm run test** para correr los test por defecto, o puedes ejecutar **npm run test-cov** para ver los archivos que fueron involucrados en los tests ejecutados.
 
 ### Swagger
+
+Para poder ver el Swagger es necesario tener la aplicación del servidor corriendo o ejecutándose.
+
 **url:** http://localhost:8080/swagger-ui.html#/
