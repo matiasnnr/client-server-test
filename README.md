@@ -24,3 +24,6 @@ Para poder correr la aplicación del cliente son necesarios dos pasos en orden:
 - En **Spring Boot** debes ejecutar el archivo **ApiApplicationTests.java** que se encuentra en la ruta *src/test/java/com/coopeuch/api*.
 
 - En **React** debes abrir una consola o terminal dentro de la carpeta del proyecto, **tener la aplicacion de Spring Boot corriendo** y ejecutar el comando **npm run test** para correr los test por defecto, o puedes ejecutar **npm run test-cov** para ver los archivos que fueron involucrados en los tests ejecutados.
+
+### Swagger
+**url:** http://localhost:8080/swagger-ui.html#/
