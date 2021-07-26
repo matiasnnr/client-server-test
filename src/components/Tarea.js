@@ -38,6 +38,7 @@ const Tarea = ({ tarea, dispatch }) => {
     return (
         <li>
             <input
+                placeholder="Escribe aquí..."
                 data-testid="editar"
                 style={{ outline: `${isDisabled && 'none'}`, border: `${isDisabled ? 'none' : '1px dashed black'}` }}
                 type="text"

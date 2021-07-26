@@ -19,7 +19,12 @@ const NuevaTarea = () => {
 
   return (
     <form onSubmit={agregarTarea}>
-      <input data-testid="nueva" name="tarea" value={descripcion} onChange={({ target }) => setDescripcion(target.value)} />
+      <input
+        data-testid="nueva"
+        placeholder="Escribe aquí..."
+        name="tarea"
+        value={descripcion}
+        onChange={({ target }) => setDescripcion(target.value)} />
       <button type="submit">agregar tarea</button>
     </form>
   )
